@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <button id="btnCreate"  onclick= "create()" >Criar Quadrado</button>
+    <button id="btnCreate"  onclick= "create()">Criar Quadrado</button>
     
 
     <script>
@@ -18,17 +18,20 @@
             var btnCreate = document.querySelector("#btnCreate");
             var divCreate = document.createElement('div');
             document.body.appendChild(divCreate);
-            divCreate.setAttribute('class','app');
-            divCreate.setAttribute('onmouseover', 'onMouseOver()')
+            divCreate.setAttribute('id','app');
+            divCreate.setAttribute('onmouseover', 'onMouseOver(this)')
 
             divCreate.style.width = '100px';
             divCreate.style.height = '100px';
             divCreate.style.backgroundColor = 'red';
             divCreate.style.marginTop = '10px'
         }
-        function onMouseOver()
+
+        //Exercício número 2
+        function onMouseOver(sender)
         {
-            var searchDiv = document.querySelectorAll('.app');
+            var searchDiv = document.querySelectorAll('#app');
+            console.log(searchDiv);
             function getRandomColor() {
                 var letters = "0123456789ABCDEF";
                 var color = "#";
@@ -38,17 +41,11 @@
                 return color;
                 }
                 var newColor = getRandomColor(); // #E943F0
-                for(var i = 0; i < searchDiv.length;i++) {
-                    
-                    searchDiv[i].style.backgroundColor = newColor;
-                }
-                console.log(searchDiv[i]);
-                
-                
+                searchDiv.style.backgroundColor = newColor;
+                //for(var i = 0; i < searchDiv.length;i++) {
+                    //searchDiv[i].style.backgroundColor = newColor;
+                //}
         }
-        
-
-
     </script>
 </body>
 </html>
