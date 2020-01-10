@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manipulando a DOM</title>
+</head>
+<body>
+    
+    <button id="btnCreate"  onclick= "create()" >Criar Quadrado</button>
+    
 
+    <script>
+        //Exercício número 1 
+        function create()
+        {
+            var btnCreate = document.querySelector("#btnCreate");
+            var divCreate = document.createElement('div');
+            document.body.appendChild(divCreate);
+            divCreate.setAttribute('class','app');
+            divCreate.setAttribute('onmouseover', 'onMouseOver()')
+
+            divCreate.style.width = '100px';
+            divCreate.style.height = '100px';
+            divCreate.style.backgroundColor = 'red';
+            divCreate.style.marginTop = '10px'
+        }
+        function onMouseOver()
+        {
+            var searchDiv = document.querySelectorAll('.app');
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+                }
+                var newColor = getRandomColor(); // #E943F0
+                for(var i = 0; i < searchDiv.length;i++) {
+                    
+                    searchDiv[i].style.backgroundColor = newColor;
+                }
+                console.log(searchDiv[i]);
+                
+                
+        }
+        
+
+
+    </script>
+</body>
+</html>
