@@ -9,7 +9,6 @@
 <body>
     
     <button id="btnCreate"  onclick= "create()">Criar Quadrado</button>
-    <button onclick="createList()">Criar List</button>
     <ul id="btnUL">
 
     </ul>
@@ -43,22 +42,24 @@
                 return color;
                 }
                 var newColor = getRandomColor(); // #E943F0
-                for(var i = 0; i < searchDiv.length;i++) {
-                    searchDiv[i].style.backgroundColor = newColor;
-                }
+                sender.style.backgroundColor = newColor;
+                
         }
         //Exercício número 3
         function createList() 
         {
             var nomes = ["Diego", "Gabriel","Lucas"];
-            var btnUL = document.querySelector('#btnUL');
-            var liCreate = document.createElement('li');
-            document.body.appendChild(btnUL);
+            
             for(var i = 0; i < nomes.length; i++) {
                 console.log(nomes[i]);
                 
+                var btnUL = document.querySelector('#btnUL');
+                var liCreate = document.createElement('li');
+                btnUL.appendChild(liCreate);
+                liCreate.innerText = nomes[i];
             }
         }
+        createList();
         
 
 
