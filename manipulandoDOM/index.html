@@ -9,6 +9,10 @@
 <body>
     
     <button id="btnCreate"  onclick= "create()">Criar Quadrado</button>
+    <button onclick="createList()">Criar List</button>
+    <ul id="btnUL">
+
+    </ul>
     
 
     <script>
@@ -18,7 +22,7 @@
             var btnCreate = document.querySelector("#btnCreate");
             var divCreate = document.createElement('div');
             document.body.appendChild(divCreate);
-            divCreate.setAttribute('id','app');
+            divCreate.setAttribute('class','app');
             divCreate.setAttribute('onmouseover', 'onMouseOver(this)')
 
             divCreate.style.width = '100px';
@@ -26,12 +30,10 @@
             divCreate.style.backgroundColor = 'red';
             divCreate.style.marginTop = '10px'
         }
-
         //Exercício número 2
         function onMouseOver(sender)
         {
-            var searchDiv = document.querySelectorAll('#app');
-            console.log(searchDiv);
+            var searchDiv = document.querySelectorAll('.app');
             function getRandomColor() {
                 var letters = "0123456789ABCDEF";
                 var color = "#";
@@ -41,11 +43,25 @@
                 return color;
                 }
                 var newColor = getRandomColor(); // #E943F0
-                searchDiv.style.backgroundColor = newColor;
-                //for(var i = 0; i < searchDiv.length;i++) {
-                    //searchDiv[i].style.backgroundColor = newColor;
-                //}
+                for(var i = 0; i < searchDiv.length;i++) {
+                    searchDiv[i].style.backgroundColor = newColor;
+                }
         }
+        //Exercício número 3
+        function createList() 
+        {
+            var nomes = ["Diego", "Gabriel","Lucas"];
+            var btnUL = document.querySelector('#btnUL');
+            var liCreate = document.createElement('li');
+            document.body.appendChild(btnUL);
+            for(var i = 0; i < nomes.length; i++) {
+                console.log(nomes[i]);
+                
+            }
+        }
+        
+
+
     </script>
 </body>
 </html>
